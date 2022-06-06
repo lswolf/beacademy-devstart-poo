@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 class Disciplina {
-    public $carga_horaria;
-    public $professor;
-    public $alunos;
+    public int $carga_horaria;
+    public Professor $professor;
+    public string $nome;
 }
