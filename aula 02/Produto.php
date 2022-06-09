@@ -8,7 +8,7 @@ class Produto {
         $this->nome = $nome;
     }
     public function  setPreco(float $preco) : void{
-        if ($preco<=0){
+        if ($preco<= 0){
             die('valor negativo');
         }else{
             $this->preco = $preco;
