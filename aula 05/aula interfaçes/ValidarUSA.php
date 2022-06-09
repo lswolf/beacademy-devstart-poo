@@ -8,7 +8,7 @@ class ValidarUSA implements Validar
          }
     }
     public function validarDocumento(string $documento):void{
-        if(strlen($documento !== 14){
+        if(strlen($documento) !== 14){
             die('invalid Social security number');
          }
     }

@@ -8,7 +8,7 @@ class ValidarBR implements Validar
          }
     }
     public function validarDocumento(string $documento):void{
-        if(strlen($documento !== 11){
+        if(strlen($documento) !== 11){
             die( 'cpf invalido' );
          }
     }
