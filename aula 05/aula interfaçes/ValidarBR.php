@@ -9,7 +9,7 @@ class ValidarBR implements Validar
     }
     public function validarDocumento(string $documento):void{
         if(strlen($documento !== 11){
-            die('cpf invalido');
+            die( 'cpf invalido' );
          }
     }
     public function validarCodigoPostal(string $codigoPostal):void{
