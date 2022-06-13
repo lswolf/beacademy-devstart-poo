@@ -9,7 +9,7 @@ $p = new ProductController();
 $c = new CategoryController();
 
 $url = explode('?', $_SERVER['REQUEST_URI'])[0];
-echo $url;
+/* echo $url;
 switch ($url) {
 case  '/':
     $i->indexAction();
@@ -37,15 +37,28 @@ case  '/category/edit':
     break;
 default:
   (new ErrorController)->notFoundAction();
+} */
+function createRoute(string $controller, string $method){
+    return [
+        'controller' => $controller,
+        'method' => $method
+    ];
 }
-
 $routes = [
-    '/' => [
-        'controller' => IndexController::class,
-        'method' => 'indexAction'
-    ]
-
-
+    '/' => createRoute(IndexController::class,'indexAction'),
+    '/login' => createRoute(IndexController::class,'loginAction'),
+    '/product'=> createRoute(ProductController::class,'listAction'),
+    '/product/add'=> createRoute(ProductController::class,'addAction'),
+    '/product/edit'=> createRoute(ProductController::class,'editAction'),
+    '/category' => createRoute(CategoryController::class,'listAction'),
+    '/category/add'=> createRoute(CategoryController::class,'addAction'),
+    '/category/edit'=> createRoute(CategoryController::class,'editAction'),
 ];
-
+if(!isset($routes[$url])){
+    (new ErrorController)->notFoundAction();
+    exit;
+}
+$controller= $routes[$url]['controller'];
+$method = $routes[$url]['method'];
+(new $controller)-> $method();
 
